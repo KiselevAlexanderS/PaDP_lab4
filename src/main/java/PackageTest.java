@@ -28,6 +28,11 @@ public class PackageTest {
         return unexpextedProps;
     }
 
+    @JsonProperty("test")
+    public List<SingleTest> getTest() {
+        return test;
+    }
+
     @JsonProperty("packId")
     public String getPackId() {
         return packId;
