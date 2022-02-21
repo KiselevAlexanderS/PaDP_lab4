@@ -1,6 +1,8 @@
 import akka.actor.AbstractActor;
 import akka.actor.ActorRef;
 
+import javax.script.ScriptEngine;
+
 public class ResultActor extends AbstractActor {
 
     private ActorRef storage;
@@ -10,7 +12,7 @@ public class ResultActor extends AbstractActor {
     }
 
     private String runTest() {
-        
+        ScriptEngine
     }
 
     @Override
