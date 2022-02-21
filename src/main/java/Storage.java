@@ -11,6 +11,16 @@ public class Storage extends AbstractActor {
 
     @Override
     public Receive createReceive() {
-        return ReceiveBuilder.create().match(SingleResult.class, this::g);
+        return ReceiveBuilder.create().
+    }
+
+    private void getSingleResult(SingleResult singleResult) {
+        String packId = singleResult.getPackId();
+        String result = singleResult.getResult();
+        if (store.containsKey(packId)) {
+            store.get(packId).add(result);
+        } else {
+            ArrayList<String> results = new ArrayList<>();
+        }
     }
 }
