@@ -24,7 +24,7 @@ public class Router extends AbstractActor {
         this.storageActor.tell(resultRequest, getSender());
     }
 
-    private void receivePackageTest(PackageTest test) {
-        test.getTest()
+    private void receivePackageTest(PackageTest tests) {
+        tests.getTest().stream().map(test -> new Request(test.getPackId))
     }
 }
