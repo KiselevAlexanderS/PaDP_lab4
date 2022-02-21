@@ -25,6 +25,6 @@ public class PackageTest {
 
     @JsonProperty("packId")
     public String getPackId() {
-        return packId
+        return packId;
     }
 }
