@@ -18,7 +18,9 @@ public class AkkaApp extends AllDirectives {
         final Http http = Http.get(actorsystem);
         final ActorMaterializer materia = ActorMaterializer.create(actorsystem);
         AkkaApp akkaApp = new AkkaApp();
-        final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = akkaApp.createRoute()
+        final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = akkaApp.createRoute(actorsystem).flow(actorsystem, materia);
+
+        final 
     }
 
     private Route createRoute(ActorSystem system) {
