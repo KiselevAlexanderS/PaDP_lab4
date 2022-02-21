@@ -3,10 +3,11 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Test implements Serializable {
-    private String testname;
-    private String expectedResult;
-    private Object[] params;
+    private final String testname;
+    private final String expectedResult;
+    private final Object[] params;
     private String result;
+    private Request parent;
 
     @JsonCreator
     Test(@JsonProperty("testname")String testname, @JsonProperty("expectedResult") String expectedResult, @JsonProperty("params") Object[] params) {
@@ -33,5 +34,13 @@ public class Test implements Serializable {
 
     public String getResult() {
         return result;
+    }
+
+    public Request getParent() {
+        return parent;
+    }
+
+    public void setMaster(Request parent) {
+        this.parent = parent;
     }
 }
