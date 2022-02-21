@@ -12,7 +12,7 @@ public class ResultActor extends AbstractActor {
     }
 
     private String runTest() {
-        ScriptEngine
+        ScriptEngine engine = new Sc
     }
 
     @Override
