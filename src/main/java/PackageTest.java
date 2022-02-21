@@ -44,6 +44,21 @@ public class PackageTest {
     }
 
     @JsonProperty("test")
+    public void setTest(List<SingleTest> test) {
+        this.test = test;
+    }
+
+    @JsonProperty("test")
+    public void setPackId(String packId){
+        this.packId = packId;
+    }
+
+    @JsonProperty("test")
+    public List<SingleTest> getTest() {
+        return test;
+    }
+
+    @JsonProperty("test")
     public List<SingleTest> getTest() {
         return test;
     }
