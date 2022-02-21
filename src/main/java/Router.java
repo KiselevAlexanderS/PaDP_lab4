@@ -25,6 +25,6 @@ public class Router extends AbstractActor {
     }
 
     private void receivePackageTest(PackageTest test) {
-        test.getTests()
+        test.getTest()
     }
 }
