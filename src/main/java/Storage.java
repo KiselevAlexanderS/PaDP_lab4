@@ -1,4 +1,5 @@
 import akka.actor.AbstractActor;
+import akka.japi.pf.ReceiveBuilder;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,6 +11,6 @@ public class Storage extends AbstractActor {
 
     @Override
     public Receive createReceive() {
-        return receiveBuilder().match(Test.class, test -> input(test)).match(String.class, id -> sender().tell());
+        return ReceiveBuilder.create().match(SingleResult.class, this::g);
     }
 }
