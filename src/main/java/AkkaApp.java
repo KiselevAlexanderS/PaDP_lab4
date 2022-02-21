@@ -31,7 +31,7 @@ public class AkkaApp extends AllDirectives {
                 materia
         );
         System.in.read();
-        binding.thenCompose(ServerBinding)
+        binding.thenCompose(ServerBinding::unbind).thenAccept()
     }
 
     private Route createRoute(ActorSystem system) {
