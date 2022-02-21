@@ -14,10 +14,11 @@ import akka.stream.StreamRefMessages;
 import akka.stream.javadsl.Flow;
 import scala.concurrent.Future;
 
+import java.io.IOException;
 import java.util.concurrent.CompletionStage;
 
 public class AkkaApp extends AllDirectives {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         ActorSystem actorsystem = ActorSystem.create("AkkaApp");
         final Http http = Http.get(actorsystem);
         final ActorMaterializer materia = ActorMaterializer.create(actorsystem);
@@ -26,8 +27,11 @@ public class AkkaApp extends AllDirectives {
 
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
                 routeFlow,
-                ConnectHttp.toHost()
-        )
+                ConnectHttp.toHost("localhost", 8000),
+                materia
+        );
+        System.in.read();
+        binding.thenCompose(ServerBinding)
     }
 
     private Route createRoute(ActorSystem system) {
