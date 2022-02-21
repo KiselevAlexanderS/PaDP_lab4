@@ -21,6 +21,8 @@ public class Storage extends AbstractActor {
             store.get(packId).add(result);
         } else {
             ArrayList<String> results = new ArrayList<>();
+            results.add(result);
+            store.put(packId, results);
         }
     }
 }
