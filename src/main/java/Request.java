@@ -12,8 +12,8 @@ public class Request implements Serializable {
     private String expectedResult;
     private List<Object> params;
 
-    @JsonCreator
-    Request(@JsonProperty("packId")String packId, @JsonProperty("jsScript") String jsScript, @JsonProperty("funcName") String funcName, @JsonProperty("tests")ArrayList<Test> tests) {
+
+    Request(String packId, String jsScript, String funcName, String expectedResult, List<Object> params) {
         this.funcName = funcName;
         this.packId = packId;
         this.jsScript = jsScript;
@@ -33,7 +33,11 @@ public class Request implements Serializable {
         return jsScript;
     }
 
-    public ArrayList<Test> getTests() {
-        return tests;
+    public String getExpectedResult() {
+        return expectedResult;
+    }
+
+    public List<Object> getParams() {
+        return params;
     }
 }
