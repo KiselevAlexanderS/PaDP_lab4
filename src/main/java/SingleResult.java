@@ -6,4 +6,12 @@ public class SingleResult {
         this.packId = packId;
         this.result = result;
     }
+
+    public String getResult() {
+        return result;
+    }
+
+    public String getPackId() {
+        return packId;
+    }
 }
