@@ -1,7 +1,4 @@
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -20,4 +17,9 @@ public class PackageTest {
     @JsonProperty("funcName") private String funcName;
     @JsonProperty("test") private List<SingleTest> test;
     @JsonIgnore private Map<String,Object> unexpextedProps = new HashMap<>();
+
+    @JsonAnySetter
+    public void setUnexpextedProps(Map<String, Object> unexpextedProps) {
+        this.unexpextedProps = unexpextedProps;
+    }
 }
