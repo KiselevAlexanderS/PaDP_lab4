@@ -1,5 +1,6 @@
 import akka.NotUsed;
 import akka.actor.*;
+import akka.http.javadsl.ConnectHttp;
 import akka.http.javadsl.Http;
 import akka.http.javadsl.ServerBinding;
 import akka.http.javadsl.marshallers.jackson.Jackson;
@@ -23,7 +24,10 @@ public class AkkaApp extends AllDirectives {
         AkkaApp akkaApp = new AkkaApp();
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = akkaApp.createRoute(actorsystem).flow(actorsystem, materia);
 
-        final CompletionStage<ServerBinding> binding = http.bindAndHandle()
+        final CompletionStage<ServerBinding> binding = http.bindAndHandle(
+                routeFlow,
+                ConnectHttp.toHost()
+        )
     }
 
     private Route createRoute(ActorSystem system) {
