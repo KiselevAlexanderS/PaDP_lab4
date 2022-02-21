@@ -19,7 +19,7 @@ public class ResultActor extends AbstractActor {
         engine.eval(test.getParent().getJsScript());
         Invocable invocable = (Invocable) engine;
 
-        return invocable.invokeFunction(test.getParent().getFuncName(), test.getParams().toString());
+        return invocable.invokeFunction(test.getParent().getFuncName(), test.getParams()).toString();
     }
 
     @Override
