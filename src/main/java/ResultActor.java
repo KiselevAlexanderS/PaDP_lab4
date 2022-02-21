@@ -15,19 +15,25 @@ public class ResultActor extends AbstractActor {
         this.storage = storage;
     }
 
-    private String runTest(Test test) throws ScriptException, NoSuchMethodException {
+    private String run(String funcName, String script, Object... args) throws ScriptException, NoSuchMethodException {
         ScriptEngine engine = new ScriptEngineManager().getEngineByName("nashorn");
-        engine.eval(test.getParent().getJsScript());
+        engine.eval(script);
         Invocable invocable = (Invocable) engine;
 
-        return invocable.invokeFunction(test.getParent().getFuncName(), test.getParams()).toString();
+        return invocable.invokeFunction(funcName, args).toString();
     }
 
-    private Test check(Test test) throws ScriptException, NoSuchMethodException {
-        String result = runTest(test);
-        test.setResult(result);
-
-        return test;
+    private void runTest(Request test) {
+        String body;
+        try {
+            String actualResult = run(test.getFuncName(), test.getJsScript(), test.getParams());
+            body = actualResult.equals(test.getExpectedResult()) ? "Answer is right" : "Wrong";
+        } catch (ScriptException except) {
+            body = "ScriptError :" + except.getLocalizedMessage();
+        } catch (NoSuchMethodException except) {
+            body = "Method does not exists :" + except.getLocalizedMessage();
+        }
+        storage.tell(new SingleResult(test.getPackId(), body), ActorRef.noSender());
     }
 
     @Override
