@@ -28,9 +28,9 @@ public class PackageTest {
         return packId;
     }
 
-    @JsonProperty("packId")
-    public String getPackId() {
-        return packId;
+    @JsonProperty("jsScript")
+    public String getJsScript() {
+        return jsScript;
     }
 
     @JsonProperty("packId")
