@@ -48,17 +48,18 @@ public class PackageTest {
         this.test = test;
     }
 
-    @JsonProperty("test")
+    @JsonProperty("packId")
     public void setPackId(String packId){
         this.packId = packId;
     }
 
-    @JsonProperty("test")
-    public void setPackId(String packId){
-        this.packId = packId;
+    @JsonProperty("funcName")
+    public void setFuncName(String funcName){
+        this.funcName = funcName;
     }
-    @JsonProperty("test")
-    public void setPackId(String packId){
-        this.packId = packId;
+
+    @JsonProperty("jsScript")
+    public void setJsScript(String jsScript){
+        this.jsScript = jsScript;
     }
 }
