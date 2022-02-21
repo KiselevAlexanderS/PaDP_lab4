@@ -28,5 +28,6 @@ public class Storage extends AbstractActor {
 
     private void sendPackageResult(ResultRequest resultRequest) {
         String packId = resultRequest.getPackId();
+        sender().tell(new PackageResult(packId, store.get(packId)), getSelf());
     }
 }
