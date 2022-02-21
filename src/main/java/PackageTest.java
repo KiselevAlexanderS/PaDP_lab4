@@ -23,6 +23,11 @@ public class PackageTest {
         this.unexpextedProps = unexpextedProps;
     }
 
+    @JsonAnySetter
+    public Map<String, Object> getUnexpextedProps(){
+        return unexpextedProps;
+    }
+
     @JsonProperty("packId")
     public String getPackId() {
         return packId;
