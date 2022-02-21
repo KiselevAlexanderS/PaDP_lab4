@@ -23,7 +23,7 @@ public class AkkaApp extends AllDirectives {
         AkkaApp akkaApp = new AkkaApp();
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = akkaApp.createRoute(actorsystem).flow(actorsystem, materia);
 
-        final CompletionStage<ServerBinding>
+        final CompletionStage<ServerBinding> binding = http.bindAndHandle()
     }
 
     private Route createRoute(ActorSystem system) {
