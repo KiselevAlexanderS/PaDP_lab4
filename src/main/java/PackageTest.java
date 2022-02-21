@@ -33,9 +33,9 @@ public class PackageTest {
         return jsScript;
     }
 
-    @JsonProperty("packId")
-    public String getPackId() {
-        return packId;
+    @JsonProperty("funcName")
+    public String getFuncName() {
+        return funcName;
     }
 
     @JsonProperty("packId")
