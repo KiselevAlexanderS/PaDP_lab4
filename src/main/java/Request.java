@@ -17,4 +17,20 @@ public class Request implements Serializable {
         this.jsScript = jsScript;
         this.tests = tests;
     }
+
+    public String getFuncName() {
+        return funcName;
+    }
+
+    public String getPackId() {
+        return packId;
+    }
+
+    public String getJsScript() {
+        return jsScript;
+    }
+
+    public ArrayList<Test> getTests() {
+        return tests;
+    }
 }
