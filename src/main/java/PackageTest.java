@@ -22,4 +22,9 @@ public class PackageTest {
     public void setUnexpextedProps(Map<String, Object> unexpextedProps) {
         this.unexpextedProps = unexpextedProps;
     }
+
+    @JsonProperty("packId")
+    public String getPackId() {
+        return packId
+    }
 }
