@@ -8,7 +8,6 @@ public class ResultActor extends AbstractActor {
     ResultActor(ActorRef storage) {
         this.storage = storage;
     }
-
     
 
     @Override
