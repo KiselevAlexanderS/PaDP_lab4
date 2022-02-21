@@ -1,6 +1,7 @@
 import akka.actor.AbstractActor;
 import akka.actor.ActorRef;
 
+import javax.script.Invocable;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
@@ -13,11 +14,12 @@ public class ResultActor extends AbstractActor {
         this.storage = storage;
     }
 
-    private String runTest(Test test) throws ScriptException {
+    private String runTest(Test test) throws ScriptException, NoSuchMethodException {
         ScriptEngine engine = new ScriptEngineManager().getEngineByName("nashorn");
         engine.eval(test.getParent().getJsScript());
+        Invocable invocable = (Invocable) engine;
 
-        return 
+        return invocable.invokeFunction(test.getParent().getFuncName(), test.getParams().toString());
     }
 
     @Override
