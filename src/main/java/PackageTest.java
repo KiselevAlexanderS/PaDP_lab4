@@ -38,8 +38,8 @@ public class PackageTest {
         return funcName;
     }
 
-    @JsonProperty("packId")
-    public String getPackId() {
-        return packId;
+    @JsonProperty("test")
+    public List<SingleTest> getTest() {
+        return test;
     }
 }
