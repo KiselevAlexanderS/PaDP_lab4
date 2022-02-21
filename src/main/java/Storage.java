@@ -11,7 +11,13 @@ public class Storage extends AbstractActor {
     private void input(Test test) {
         String packId = test.getParent().getPackId();
 
-        
+        if (store.containsKey(packId)) {
+            store.get(packId).add(test);
+        } else {
+            ArrayList<Test> tests = new ArrayList<>();
+            tests.add(test);
+            store.put(packId, tests);
+        }
     }
 
     @Override
