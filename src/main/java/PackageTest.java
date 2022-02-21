@@ -54,12 +54,11 @@ public class PackageTest {
     }
 
     @JsonProperty("test")
-    public List<SingleTest> getTest() {
-        return test;
+    public void setPackId(String packId){
+        this.packId = packId;
     }
-
     @JsonProperty("test")
-    public List<SingleTest> getTest() {
-        return test;
+    public void setPackId(String packId){
+        this.packId = packId;
     }
 }
