@@ -17,7 +17,7 @@ public class Router extends AbstractActor {
 
     @Override
     public Receive createReceive() {
-        return null;
+        return receiveBuilder().match(ResultRequest.class, this::receiveResultRequest).match(PackageTest);
     }
 
     private void receiveResultRequest(ResultRequest resultRequest) {
