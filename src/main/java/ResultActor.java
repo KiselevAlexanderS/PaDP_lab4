@@ -2,6 +2,7 @@ import akka.actor.AbstractActor;
 import akka.actor.ActorRef;
 
 import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
 
 public class ResultActor extends AbstractActor {
 
@@ -12,7 +13,7 @@ public class ResultActor extends AbstractActor {
     }
 
     private String runTest() {
-        ScriptEngine engine = new Sc
+        ScriptEngine engine = new ScriptEngineManager()
     }
 
     @Override
