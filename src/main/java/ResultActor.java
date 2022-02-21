@@ -38,6 +38,6 @@ public class ResultActor extends AbstractActor {
 
     @Override
     public Receive createReceive() {
-        return ReceiveBuilder.create().match(Test.class, func -> storage.tell(check(func), ActorRef.noSender())).build();
+        return ReceiveBuilder.create().match(Request.class, this::runTest).build();
     }
 }
