@@ -25,6 +25,7 @@ public class ResultActor extends AbstractActor {
     private Test check(Test test) throws ScriptException, NoSuchMethodException {
         String result = runTest(test);
         test.setResult(result);
+        
     }
 
     @Override
