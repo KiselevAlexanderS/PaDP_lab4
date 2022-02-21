@@ -17,7 +17,7 @@ public class Router extends AbstractActor {
 
     @Override
     public Receive createReceive() {
-        return receiveBuilder().match(ResultRequest.class, this::receiveResultRequest).build();
+        return receiveBuilder().match(ResultRequest.class, this::receiveResultRequest).match(PackageTest.class, this::receivePackageTest).build();
     }
 
     private void receiveResultRequest(ResultRequest resultRequest) {
@@ -25,6 +25,6 @@ public class Router extends AbstractActor {
     }
 
     private void receivePackageTest(PackageTest tests) {
-        tests.getTest().stream().map(test -> new Request(test.getPackId))
+        tests.getTest().stream().map(test -> new Request(tests.getPackId(), tests.getFuncName(), tests.getJsScript(), test.getExpectedResult(), test.getParams())).forEach(msg -> this.testActor.tell(msg, this.storageActor));
     }
 }
