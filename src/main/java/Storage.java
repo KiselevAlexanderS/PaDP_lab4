@@ -6,19 +6,7 @@ import java.util.Map;
 
 public class Storage extends AbstractActor {
 
-    private Map<String, ArrayList<Test>> store = new HashMap<>();
-
-    private void input(Test test) {
-        String packId = test.getParent().getPackId();
-
-        if (store.containsKey(packId)) {
-            store.get(packId).add(test);
-        } else {
-            ArrayList<Test> tests = new ArrayList<>();
-            tests.add(test);
-            store.put(packId, tests);
-        }
-    }
+    private Map<String, ArrayList<String>> store = new HashMap<>();
 
     @Override
     public Receive createReceive() {
