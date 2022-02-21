@@ -1,2 +1,9 @@
-package PACKAGE_NAME;public class SingleResult {
+public class SingleResult {
+    private String packId;
+    private String result;
+
+    public SingleResult(String packId, String result) {
+        this.packId = packId;
+        this.result = result;
+    }
 }
