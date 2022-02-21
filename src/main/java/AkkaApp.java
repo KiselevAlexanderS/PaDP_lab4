@@ -29,7 +29,7 @@ public class AkkaApp extends AllDirectives {
                         })),
                 get(() ->
                         parameter("packId", packId -> {
-                            Future
+                            Future<Object>
                         }))
         );
     }
