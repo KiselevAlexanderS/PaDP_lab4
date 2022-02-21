@@ -6,9 +6,11 @@ import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.model.HttpResponse;
 import akka.http.javadsl.server.AllDirectives;
 import akka.http.javadsl.server.Route;
+import akka.pattern.Patterns;
 import akka.stream.ActorMaterializer;
 import akka.stream.StreamRefMessages;
 import akka.stream.javadsl.Flow;
+import scala.concurrent.Future;
 
 public class AkkaApp extends AllDirectives {
     public static void main(String[] args) {
@@ -29,7 +31,9 @@ public class AkkaApp extends AllDirectives {
                         })),
                 get(() ->
                         parameter("packId", packId -> {
-                            Future<Object>
+                            Future<Object> result = Patterns.ask(
+                                    
+                            );
                         }))
         );
     }
