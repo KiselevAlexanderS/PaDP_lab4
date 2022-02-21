@@ -5,8 +5,8 @@ import scala.sys.Prop;
 
 public class Router extends AbstractActor {
 
-    private ActorRef storageActor;
-    private ActorRef testActor;
+    private final ActorRef storageActor;
+    private final ActorRef testActor;
     private SupervisorStrategy supervisorStrategy;
 
 
