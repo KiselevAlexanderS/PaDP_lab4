@@ -1,4 +1,5 @@
 import akka.actor.*;
+import akka.routing.RoundRobinPool;
 import scala.sys.Prop;
 
 
@@ -9,12 +10,17 @@ public class Router extends AbstractActor {
     private SupervisorStrategy supervisorStrategy;
 
 
-    Router(ActorSystem actorSystem) {
-        storageActor = actorSystem.actorOf(Props.create());
+    Router() {
+        this.storageActor = getContext().actorOf(Props.create(Storage.class, Storage::new), "Storage");
+        this.testActor = getContext().actorOf(new RoundRobinPool(5).props(Props.create(ResultActor.class, storageActor)), "router");
     }
 
     @Override
     public Receive createReceive() {
         return null;
+    }
+
+    private void receiveResultRequest(ResultRequest resultRequest) {
+        this.storageActor.tell()
     }
 }
