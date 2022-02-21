@@ -13,5 +13,7 @@ public class PackageResult {
         return packId;
     }
 
-    public ArrayList
+    public ArrayList<String> getResult() {
+        return result;
+    }
 }
