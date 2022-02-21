@@ -11,7 +11,7 @@ public class Storage extends AbstractActor {
 
     @Override
     public Receive createReceive() {
-        return ReceiveBuilder.create().
+        return ReceiveBuilder.create().match(SingleResult.class, this::getSingleResult).match(ResultRequest.class, this::sendPackageResult).build();
     }
 
     private void getSingleResult(SingleResult singleResult) {
