@@ -32,8 +32,11 @@ public class AkkaApp extends AllDirectives {
                 get(() ->
                         parameter("packId", packId -> {
                             Future<Object> result = Patterns.ask(
-                                    
+                                    testsRouter,
+                                    new ResultRequest(packId),
+                                    5000
                             );
+                            return completeOKWithFuture(result, Jackson.marshaller());
                         }))
         );
     }
