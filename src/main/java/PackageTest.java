@@ -27,4 +27,19 @@ public class PackageTest {
     public String getPackId() {
         return packId;
     }
+
+    @JsonProperty("packId")
+    public String getPackId() {
+        return packId;
+    }
+
+    @JsonProperty("packId")
+    public String getPackId() {
+        return packId;
+    }
+
+    @JsonProperty("packId")
+    public String getPackId() {
+        return packId;
+    }
 }
