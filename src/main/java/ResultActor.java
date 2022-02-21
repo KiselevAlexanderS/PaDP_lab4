@@ -22,6 +22,11 @@ public class ResultActor extends AbstractActor {
         return invocable.invokeFunction(test.getParent().getFuncName(), test.getParams()).toString();
     }
 
+    private Test check(Test test) throws ScriptException, NoSuchMethodException {
+        String result = runTest(test);
+        test.setResult(result);
+    }
+
     @Override
     public Receive createReceive() {
         return null;
